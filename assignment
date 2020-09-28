@@ -1,0 +1,13 @@
+curl -s http://public-dns.info/nameserver/br.csv | cut -d, -f1 | shuf | tail -n 50 | xargs -i timeout 1 ping -c1 -w 1 {} | grep "time=" | awk '{print substr($7, 6, length($7)) " " substr($4, 1, length($4) -1)}' | sort -n | awk '{print $2 " " $1 "ms"}' | head -n 10
+
+curl -s : (silent mode) curl used for getting data from server. Silent mode don’t show progress meter or error messages.
+shuf : it generates random permutations off the data.
+tail : gives last part of files
+xargs: it builds and executes command lines from data. -i replace the str.
+timeout : it runs a command within that time
+ping : it sends ICMP echo requests to network hosts. c1 stops after sending 1 echo request packet. w1 waits for one echo reply packet until its timeout expires.
+grep: searches for matching string.
+awk : used for pattern scanning and processing language.
+substring: get some part of data.
+sort: it sorts lines of data.
+head: gives starting part of files.
