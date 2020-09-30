@@ -11,3 +11,5 @@ awk : used for pattern scanning and processing language.
 substring: get some part of data.
 sort: it sorts lines of data.
 head: gives starting part of files.
+
+hiii
